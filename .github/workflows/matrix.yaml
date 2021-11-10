@@ -1,20 +1,15 @@
 on:
   workflow_dispatch:
-    inputs:
-      list_of_values:
-        description: define a comma-separated list of values
-        id: values
-        default: "1,2,3"
 
 jobs:
   run_matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        id: [ ${{github.event.inputs.values}} ]
+        id: [ "one", "two", "three" ]
   
     steps:
-      - name: run branches
+      - name: run branch ${{ matrix.id }}
         env:
           branch_id: ${{ matrix.id }}
-        run: echo $branch_id
+        run: echo This is branch $branch_id
