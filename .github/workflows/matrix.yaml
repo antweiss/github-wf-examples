@@ -15,6 +15,6 @@ jobs:
   
     steps:
       - name: run branches
-        with:
+        env:
           branch_id: ${{ matrix.id }}
         run: echo $branch_id
