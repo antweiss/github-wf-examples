@@ -7,10 +7,11 @@ on:
         default: 1,2,3
 
 jobs:
+  runs-on: ubuntu-latest
   run_matrix:
     strategy:
       matrix:
-        id: [ ${{github.events.input.values}} ]
+        id: [ 1,2,3 ]
   
     steps:
       - name: run branches
