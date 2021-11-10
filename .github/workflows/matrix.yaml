@@ -4,14 +4,14 @@ on:
       list_of_values:
         description: define a comma-separated list of values
         id: values
-        default: 1,2,3
+        default: "1,2,3"
 
 jobs:
   run_matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        id: [ 1,2,3 ]
+        id: [ ${{github.event.inputs.values}} ]
   
     steps:
       - name: run branches
