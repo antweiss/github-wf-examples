@@ -10,6 +10,7 @@ jobs:
     - name: Catch exit code
       id: catch
       run: |
+          set +e
           echo Going to return exit code 1
           ls /home/nonexistent
           if [ $? != 0 ]; then
@@ -17,3 +18,4 @@ jobs:
           else
             echo We succeeded
           fi
+          echo And now we continue
