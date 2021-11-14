@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+        
+jobs:
+  catch_code:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Catch exit code
+      id: catch
+      run: |
+          echo Going to return exit code 1
+          ls /home/nonexistent
+          if [ $? != 0 ]; then
+            echo We failed
+          else
+            echo We succeeded
+          fi
